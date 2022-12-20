@@ -21,15 +21,15 @@ import '../provider/tv_series_list_notifier_test.mocks.dart';
 
 @GenerateMocks([GetNowPlayingTvSeries])
 void main() {
-  late NowPlayingTvSeriesBloc searchBloc;
+  late NowPlayingTvSeriesBloc nowPlayingTvSeriesBloc;
   late MockGetNowPlayingTvSeries mockSearchTvSeries;
 
   setUp(() {
     mockSearchTvSeries = MockGetNowPlayingTvSeries();
-    searchBloc = NowPlayingTvSeriesBloc(mockSearchTvSeries);
+    nowPlayingTvSeriesBloc = NowPlayingTvSeriesBloc(mockSearchTvSeries);
   });
   test('initial state should be empty', () {
-    expect(searchBloc.state, StateEmpty());
+    expect(nowPlayingTvSeriesBloc.state, StateEmpty());
   });
 
   final tTvSeriesModel = TvSeries(
@@ -48,7 +48,7 @@ void main() {
     build: () {
       when(mockSearchTvSeries.execute())
           .thenAnswer((_) async => Right(tTvSeriesList));
-      return searchBloc;
+      return nowPlayingTvSeriesBloc;
     },
     act: (bloc) => bloc.add(OnVoid()),
     wait: const Duration(milliseconds: 100),
@@ -65,7 +65,7 @@ void main() {
     build: () {
       when(mockSearchTvSeries.execute())
           .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
-      return searchBloc;
+      return nowPlayingTvSeriesBloc;
     },
     act: (bloc) => bloc.add(OnVoid()),
     expect: () => [
