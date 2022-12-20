@@ -1,0 +1,21 @@
+{
+  "dates": {
+    "maximum": "2021-05-23",
+    "minimum": "2021-04-05"
+  },
+  "page": 1,
+  "results": [
+    {
+      "genre_ids": [
+        1
+      ],
+      "id": 1,
+      "overview": "Overview",
+      "poster_path": "/path.jpg",
+      "name": "name",
+      "vote_average": 1.0
+    }
+  ],
+  "total_pages": 47,
+  "total_results": 940
+}

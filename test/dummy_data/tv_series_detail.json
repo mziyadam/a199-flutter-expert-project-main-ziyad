@@ -1,0 +1,13 @@
+{
+  "genres": [
+    {
+      "id": 1,
+      "name": "Action"
+    }
+  ],
+  "id": 1,
+  "overview": "Overview",
+  "poster_path": "/path.jpg",
+  "name": "name",
+  "vote_average": 1.0
+}

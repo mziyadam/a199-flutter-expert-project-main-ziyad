@@ -1,0 +1,17 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "genre_ids": [
+        1
+      ],
+      "id": 1,
+      "overview": "Spider-man",
+      "poster_path": "/path.jpg",
+      "name": "name",
+      "vote_average": 1.0
+    }
+  ],
+  "total_pages": 4,
+  "total_results": 62
+}
