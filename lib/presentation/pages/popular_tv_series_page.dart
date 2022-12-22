@@ -4,7 +4,6 @@ import 'package:ditonton/presentation/bloc/bloc_event.dart';
 import 'package:ditonton/presentation/bloc/bloc_state.dart';
 import 'package:ditonton/presentation/bloc/tv_series/tv_series_list/now_playing_tv_series_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_series/tv_series_list/popular_tv_series_bloc.dart';
-import 'package:ditonton/presentation/provider/popular_tv_series_notifier.dart';
 import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

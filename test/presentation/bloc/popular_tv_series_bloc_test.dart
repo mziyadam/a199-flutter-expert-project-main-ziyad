@@ -20,9 +20,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import '../provider/movie_list_notifier_test.mocks.dart';
-import '../provider/movie_search_notifier_test.mocks.dart';
-import '../provider/popular_tv_series_notifier_test.mocks.dart';
+import 'popular_tv_series_bloc_test.mocks.dart';
 
 @GenerateMocks([GetPopularTvSeries])
 void main() {

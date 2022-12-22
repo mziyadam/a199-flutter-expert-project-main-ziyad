@@ -43,18 +43,6 @@ import 'package:ditonton/presentation/bloc/tv_series/tv_series_list/popular_tv_s
 import 'package:ditonton/presentation/bloc/tv_series/tv_series_list/top_rated_tv_series_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_series/tv_series_search/search_tv_series_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_series/tv_series_watchlist/watchlist_tv_series_bloc.dart';
-import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
-import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
-import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
-import 'package:ditonton/presentation/provider/popular_movies_notifier.dart';
-import 'package:ditonton/presentation/provider/popular_tv_series_notifier.dart';
-import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart';
-import 'package:ditonton/presentation/provider/top_rated_tv_series_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_detail_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_list_notifier.dart';
-import 'package:ditonton/presentation/provider/tv_series_search_notifier.dart';
-import 'package:ditonton/presentation/provider/watchlist_movie_notifier.dart';
-import 'package:ditonton/presentation/provider/watchlist_tv_series_notifier.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
@@ -62,7 +50,7 @@ final locator = GetIt.instance;
 
 void init() {
   // provider
-  locator.registerFactory(
+  /*locator.registerFactory(
     () => MovieListNotifier(
       getNowPlayingMovies: locator(),
       getPopularMovies: locator(),
@@ -135,7 +123,7 @@ void init() {
     () => WatchlistTvSeriesNotifier(
       getWatchlistTvSeries: locator(),
     ),
-  );
+  );*/
 
   // use case
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));

@@ -1,50 +1,50 @@
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie.dart';
+import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:ditonton/presentation/bloc/bloc_event.dart';
 import 'package:ditonton/presentation/bloc/bloc_state.dart';
-import 'package:ditonton/presentation/bloc/movie/movie_list/now_playing_movies_bloc.dart';
-import 'package:ditonton/presentation/bloc/movie/movie_list/popular_movies_bloc.dart';
-import 'package:ditonton/presentation/widgets/movie_card_list.dart';
+import 'package:ditonton/presentation/bloc/tv_series/tv_series_list/now_playing_tv_series_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_series/tv_series_list/popular_tv_series_bloc.dart';
+import 'package:ditonton/presentation/widgets/tv_series_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
-class PopularMoviesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/popular-movie';
+class NowPlayingTvSeriesPage extends StatefulWidget {
+  static const ROUTE_NAME = '/now-playing-tv-series';
 
   @override
-  _PopularMoviesPageState createState() => _PopularMoviesPageState();
+  _NowPlayingTvSeriesPageState createState() => _NowPlayingTvSeriesPageState();
 }
 
-class _PopularMoviesPageState extends State<PopularMoviesPage> {
+class _NowPlayingTvSeriesPageState extends State<NowPlayingTvSeriesPage> {
   @override
   void initState() {
     super.initState();
     // Future.microtask(() =>
-    //     Provider.of<PopularMoviesNotifier>(context, listen: false)
-    //         .fetchPopularMovies());
-    context.read<PopularMoviesBloc>().add(OnVoid());
+    //     Provider.of<PopularTvSeriesNotifier>(context, listen: false)
+    //         .fetchPopularTvSeries());
+    context.read<NowPlayingTvSeriesBloc>().add(OnVoid());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Popular Movies'),
+        title: Text('Popular TvSeries'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<NowPlayingMoviesBloc, BlocState>(
+        child: BlocBuilder<NowPlayingTvSeriesBloc, BlocState>(
           builder: (context, state) {
             if (state is StateLoading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (state is StateHasData<Movie>) {
+            } else if (state is StateHasData<TvSeries>) {
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final movie = state.result[index];
-                  return MovieCard(movie);
+                  return TvSeriesCard(movie);
                 },
                 itemCount: state.result.length,
               );

@@ -3,7 +3,6 @@ import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/presentation/bloc/bloc_event.dart';
 import 'package:ditonton/presentation/bloc/bloc_state.dart';
 import 'package:ditonton/presentation/bloc/movie/movie_list/top_rated_movies_bloc.dart';
-import 'package:ditonton/presentation/provider/top_rated_movies_notifier.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

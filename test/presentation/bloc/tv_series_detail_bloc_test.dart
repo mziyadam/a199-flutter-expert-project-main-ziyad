@@ -30,9 +30,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import '../provider/movie_detail_notifier_test.mocks.dart';
-import '../provider/movie_search_notifier_test.mocks.dart';
-import '../provider/tv_series_detail_notifier_test.mocks.dart';
+import 'tv_series_detail_bloc_test.mocks.dart';
 
 @GenerateMocks(
     [GetTvSeriesDetail])

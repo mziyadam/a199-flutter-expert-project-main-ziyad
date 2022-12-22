@@ -15,9 +15,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import '../provider/movie_list_notifier_test.mocks.dart';
-import '../provider/movie_search_notifier_test.mocks.dart';
-import '../provider/tv_series_list_notifier_test.mocks.dart';
+import 'now_playing_tv_series_test.mocks.dart';
 
 @GenerateMocks([GetNowPlayingTvSeries])
 void main() {

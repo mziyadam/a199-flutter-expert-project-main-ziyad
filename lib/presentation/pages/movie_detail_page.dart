@@ -9,8 +9,8 @@ import 'package:ditonton/presentation/bloc/movie/movie_detail/movie_detail_bloc.
 import 'package:ditonton/presentation/bloc/movie/movie_detail/movie_watchlist_status_bloc.dart';
 import 'package:ditonton/presentation/bloc/movie/movie_detail/recommendation_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/movie/movie_watchlist/watchlist_movies_bloc.dart';
-import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -145,6 +145,7 @@ class DetailContent extends StatelessWidget {
                               builder: (context, state) {
                                 return ElevatedButton(
                                   onPressed: () async {
+                                    // FirebaseCrashlytics.instance.crash();
                                     if (!isAddedWatchlist) {
                                       context
                                           .read<MovieWatchlistStatusBloc>()

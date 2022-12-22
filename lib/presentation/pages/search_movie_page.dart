@@ -3,7 +3,6 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/bloc/movie/movie_search/search_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/bloc_event.dart';
 import 'package:ditonton/presentation/bloc/bloc_state.dart';
-import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
