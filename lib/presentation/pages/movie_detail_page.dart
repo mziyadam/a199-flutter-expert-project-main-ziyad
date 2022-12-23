@@ -60,9 +60,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
                   context.select(
                       (MovieWatchlistStatusBloc bloc) => bloc.state.status)),
             );
-          } else if (state is StateError){
+          } else if (state is StateError) {
             return Text(state.message);
-          }else{
+          } else {
             return Container();
           }
         },
@@ -159,11 +159,6 @@ class DetailContent extends StatelessWidget {
                                     context
                                         .read<WatchlistMoviesBloc>()
                                         .add(OnVoid());
-                                    final message =
-                                        state.msg;
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                              SnackBar(content: Text(message)));
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
