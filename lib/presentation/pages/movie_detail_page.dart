@@ -132,14 +132,6 @@ class DetailContent extends StatelessWidget {
                                             .watchlistRemoveSuccessMessage) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(content: Text(state.msg)));
-                                } else {
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) {
-                                        return AlertDialog(
-                                          content: Text(state.msg),
-                                        );
-                                      });
                                 }
                               },
                               builder: (context, state) {
