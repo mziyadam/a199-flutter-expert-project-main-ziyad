@@ -34,7 +34,7 @@ class _PopularTvSeriesPageState extends State<PopularTvSeriesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: BlocBuilder<NowPlayingTvSeriesBloc, BlocState>(
+        child: BlocBuilder<PopularTvSeriesBloc, BlocState>(
           builder: (context, state) {
             if (state is StateLoading) {
               return Center(

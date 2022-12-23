@@ -56,7 +56,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             final movie = state.result;
             return SafeArea(
               child: DetailContent(
-                  movie,
+                  movie!,
                   context.select(
                       (MovieWatchlistStatusBloc bloc) => bloc.state.status)),
             );
@@ -161,25 +161,9 @@ class DetailContent extends StatelessWidget {
                                         .add(OnVoid());
                                     final message =
                                         state.msg;
-
-                                    if (message ==
-                                            MovieWatchlistStatusBloc
-                                                .watchlistAddSuccessMessage ||
-                                        message ==
-                                            MovieWatchlistStatusBloc
-                                                .watchlistRemoveSuccessMessage) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                               SnackBar(content: Text(message)));
-                                    } else {
-                                      // showDialog(
-                                      //     context: context,
-                                      //     builder: (context) {
-                                      //       return AlertDialog(
-                                      //         content: Text(message),
-                                      //       );
-                                      //     });
-                                    }
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,

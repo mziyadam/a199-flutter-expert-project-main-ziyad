@@ -54,7 +54,7 @@ class _TvSeriesDetailPageState extends State<TvSeriesDetailPage> {
             final movie = state.result;
             return SafeArea(
               child: DetailContent(
-                  movie,
+                  movie!,
                   context.select(
                           (TvSeriesWatchlistStatusBloc bloc) => bloc.state.status)),
             );
@@ -159,24 +159,9 @@ class DetailContent extends StatelessWidget {
                                     final message =
                                         state.msg;
 
-                                    if (message ==
-                                        TvSeriesWatchlistStatusBloc
-                                            .watchlistAddSuccessMessage ||
-                                        message ==
-                                            TvSeriesWatchlistStatusBloc
-                                                .watchlistRemoveSuccessMessage) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                           SnackBar(content: Text(message)));
-                                    } else {
-                                      // showDialog(
-                                      //     context: context,
-                                      //     builder: (context) {
-                                      //       return AlertDialog(
-                                      //         content: Text(message),
-                                      //       );
-                                      //     });
-                                    }
                                   },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,

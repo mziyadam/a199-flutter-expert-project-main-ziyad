@@ -12,13 +12,6 @@ class TvSeriesDetail extends Equatable {
     required this.voteAverage,
   });
 
-  TvSeriesDetail.watchlist({
-    required this.id,
-    required this.overview,
-    required this.posterPath,
-    required this.name,
-  });
-
   List<Genre>? genres;
   int id;
   String? overview;

@@ -4,7 +4,6 @@ import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/tv_series.dart';
 import 'package:ditonton/presentation/bloc/bloc_event.dart';
 import 'package:ditonton/presentation/bloc/bloc_state.dart';
-import 'package:ditonton/presentation/bloc/movie/movie_list/popular_movies_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_series/tv_series_list/now_playing_tv_series_bloc.dart';
 import 'package:ditonton/presentation/pages/now_playing_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/popular_movies_page.dart';
@@ -21,25 +20,25 @@ class MovieDetailEventFake extends Fake implements BlocEvent {}
 
 class MovieDetailStateFake extends Fake implements BlocState {}
 
-class MockTPopularMoviesBloc extends MockBloc<BlocEvent, BlocState>
-    implements PopularMoviesBloc {}
+class MockTNowPlayingTvSeriesBloc extends MockBloc<BlocEvent, BlocState>
+    implements NowPlayingTvSeriesBloc {}
 
 // @GenerateMocks([PopularMoviesNotifier])
 void main() {
-  late MockTPopularMoviesBloc mockNotifier;
+  late MockTNowPlayingTvSeriesBloc mockNotifier;
 
   setUpAll(() {
     registerFallbackValue(MovieDetailEventFake());
     registerFallbackValue(MovieDetailStateFake());
   });
   setUp(() {
-    mockNotifier = MockTPopularMoviesBloc();
+    mockNotifier = MockTNowPlayingTvSeriesBloc();
   });
 
   Widget _makeTestableWidget(Widget body) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PopularMoviesBloc>(create: (_) => mockNotifier),
+        BlocProvider<NowPlayingTvSeriesBloc>(create: (_) => mockNotifier),
       ],
       child: MaterialApp(
         home: body,
@@ -48,38 +47,38 @@ void main() {
   }
 
   testWidgets('Page should display center progress bar when loading',
-          (WidgetTester tester) async {
-        when(() => mockNotifier.state).thenReturn(StateLoading());
+      (WidgetTester tester) async {
+    when(() => mockNotifier.state).thenReturn(StateLoading());
 
-        final progressBarFinder = find.byType(CircularProgressIndicator);
-        final centerFinder = find.byType(Center);
+    final progressBarFinder = find.byType(CircularProgressIndicator);
+    final centerFinder = find.byType(Center);
 
-        await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
 
-        expect(centerFinder, findsOneWidget);
-        expect(progressBarFinder, findsOneWidget);
-      });
+    expect(centerFinder, findsOneWidget);
+    expect(progressBarFinder, findsOneWidget);
+  });
 
   testWidgets('Page should display ListView when data is loaded',
-          (WidgetTester tester) async {
-        when(() => mockNotifier.add(OnVoid())).thenReturn(StateHasData<Movie>(testMovieList));
-        when(() => mockNotifier.state).thenReturn(StateHasData<Movie>(testMovieList));
+      (WidgetTester tester) async {
+    when(() => mockNotifier.add(OnVoid())).thenReturn(StateHasData<TvSeries>(testTvSeriesList));
+    when(() => mockNotifier.state).thenReturn(StateHasData<TvSeries>(testTvSeriesList));
 
-        final listViewFinder = find.byType(ListView);
+    final listViewFinder = find.byType(ListView);
 
-        await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
 
-        expect(listViewFinder, findsOneWidget);
-      });
+    expect(listViewFinder, findsOneWidget);
+  });
 
   testWidgets('Page should display text with message when Error',
-          (WidgetTester tester) async {
-        when(() => mockNotifier.state).thenReturn(StateError("Error Message"));
+      (WidgetTester tester) async {
+    when(() => mockNotifier.state).thenReturn(StateError("Error Message"));
 
-        final textFinder = find.byKey(Key('error_message'));
+    final textFinder = find.byKey(Key('error_message'));
 
-        await tester.pumpWidget(_makeTestableWidget(PopularMoviesPage()));
+    await tester.pumpWidget(_makeTestableWidget(NowPlayingTvSeriesPage()));
 
-        expect(textFinder, findsOneWidget);
-      });
+    expect(textFinder, findsOneWidget);
+  });
 }
