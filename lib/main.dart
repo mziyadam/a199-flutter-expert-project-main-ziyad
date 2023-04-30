@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/firebase_options.dart';
@@ -31,6 +33,7 @@ import 'package:ditonton/presentation/pages/top_rated_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv_series_detail_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_tv_series_page.dart';
+
 // import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 // import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 // import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
@@ -56,7 +59,40 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   di.init();
-  runApp(MyApp());
+  runApp(MyHomePage());
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 3), () => runApp(MyApp()));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Splash Screen',
+      home: Container(
+        color: Colors.white,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FlutterLogo(size:72),
+            Text("Ditonton by Ziyad",style: TextStyle(decoration: TextDecoration.none,color: Colors.blue,fontSize: 24),textAlign: TextAlign.center,)
+            ],
+          ),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -182,7 +218,8 @@ class MyApp extends StatelessWidget {
             case AboutPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => AboutPage());
             case NowPlayingTvSeriesPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => NowPlayingTvSeriesPage());
+              return MaterialPageRoute(
+                  builder: (_) => NowPlayingTvSeriesPage());
 
             case HomeTvSeriesPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => HomeTvSeriesPage());
