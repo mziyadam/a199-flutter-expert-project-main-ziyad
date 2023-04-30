@@ -1,7 +1,7 @@
 # a199-flutter-expert-project
 [![Codemagic build status](https://api.codemagic.io/apps/63a1b01e5f190cf0e18bc77b/63a1b01e5f190cf0e18bc77a/status_badge.svg)](https://codemagic.io/apps/63a1b01e5f190cf0e18bc77b/63a1b01e5f190cf0e18bc77a/latest_build)
 <br>
-Repository ini merupakan project submission kelas Flutter Expert Dicoding Indonesia dari Ziyad.
+Repository ini merupakan aplikasi daftar katalog untuk film & acara TV dari Ziyad.
 
 ---
 
@@ -9,7 +9,7 @@ Repository ini merupakan project submission kelas Flutter Expert Dicoding Indone
 
 1. Install and run on emulator/device in Android Studio
 
-## Tips Submission Awal
+<!-- ## Tips Submission Awal
 
 Pastikan untuk memeriksa kembali seluruh hasil testing pada submissionmu sebelum dikirimkan. Karena kriteria pada submission ini akan diperiksa setelah seluruh berkas testing berhasil dijalankan.
 
@@ -53,5 +53,5 @@ Jika kamu menerapkan modular pada project, Anda dapat memanfaatkan berkas `test.
     ./test.sh
     ```
     Proses ini akan men-*generate* berkas `lcov.info` dan folder `coverage` terkait dengan laporan coverage.
-4. Tunggu proses testing selesai hingga muncul web terkait laporan coverage.
+4. Tunggu proses testing selesai hingga muncul web terkait laporan coverage. -->
 
