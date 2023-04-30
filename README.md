@@ -5,6 +5,10 @@ Repository ini merupakan project submission kelas Flutter Expert Dicoding Indone
 
 ---
 
+## Cara Menggunakan
+
+1. Install and run on emulator/device in Android Studio
+
 ## Tips Submission Awal
 
 Pastikan untuk memeriksa kembali seluruh hasil testing pada submissionmu sebelum dikirimkan. Karena kriteria pada submission ini akan diperiksa setelah seluruh berkas testing berhasil dijalankan.
